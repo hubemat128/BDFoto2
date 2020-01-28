@@ -1,0 +1,16 @@
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\bin\Debug\PhotoAlbum.exe.config
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\bin\Debug\PhotoAlbum.exe
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\bin\Debug\PhotoAlbum.pdb
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\PhotoAlbum.csprojAssemblyReference.cache
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.AddPhotoPage.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.AlbumManager.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.AlbumView.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.CategoryView.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.PhotoSearcher.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.PhotoManager.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.MainMenu.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.LoginPage.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\HMatuszewski.PhotoAlbum.Properties.Resources.resources
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\PhotoAlbum.csproj.GenerateResource.cache
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\PhotoAlbum.exe
+C:\Users\huber\Source\Repos\BDFoto2\Foto2\obj\Debug\PhotoAlbum.pdb
