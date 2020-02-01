@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.SearchConditionGroup = new System.Windows.Forms.GroupBox();
-            this.FormatTextBox = new System.Windows.Forms.TextBox();
+            this.CategoryCombo = new System.Windows.Forms.ComboBox();
+            this.AlbumCombo = new System.Windows.Forms.ComboBox();
             this.TagTextBox = new System.Windows.Forms.TextBox();
-            this.CategoryTextBox = new System.Windows.Forms.TextBox();
-            this.AlbumTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.FormatLabel = new System.Windows.Forms.Label();
             this.TagLabel = new System.Windows.Forms.Label();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.AlbumLabel = new System.Windows.Forms.Label();
@@ -44,7 +42,6 @@
             this.PhotoList = new System.Windows.Forms.ListView();
             this.SelectedPhotoLabel = new System.Windows.Forms.Label();
             this.PhotoPreview = new System.Windows.Forms.PictureBox();
-            this.ManagePhotoBtn = new System.Windows.Forms.Button();
             this.ShowPhotoBtn = new System.Windows.Forms.Button();
             this.ReturnBtn = new System.Windows.Forms.Button();
             this.SearchConditionGroup.SuspendLayout();
@@ -54,12 +51,10 @@
             // 
             // SearchConditionGroup
             // 
-            this.SearchConditionGroup.Controls.Add(this.FormatTextBox);
+            this.SearchConditionGroup.Controls.Add(this.CategoryCombo);
+            this.SearchConditionGroup.Controls.Add(this.AlbumCombo);
             this.SearchConditionGroup.Controls.Add(this.TagTextBox);
-            this.SearchConditionGroup.Controls.Add(this.CategoryTextBox);
-            this.SearchConditionGroup.Controls.Add(this.AlbumTextBox);
             this.SearchConditionGroup.Controls.Add(this.NameTextBox);
-            this.SearchConditionGroup.Controls.Add(this.FormatLabel);
             this.SearchConditionGroup.Controls.Add(this.TagLabel);
             this.SearchConditionGroup.Controls.Add(this.CategoryLabel);
             this.SearchConditionGroup.Controls.Add(this.AlbumLabel);
@@ -74,13 +69,21 @@
             this.SearchConditionGroup.TabStop = false;
             this.SearchConditionGroup.Text = "Kryteria wyszukiwania";
             // 
-            // FormatTextBox
+            // CategoryCombo
             // 
-            this.FormatTextBox.Location = new System.Drawing.Point(92, 115);
-            this.FormatTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.FormatTextBox.Name = "FormatTextBox";
-            this.FormatTextBox.Size = new System.Drawing.Size(216, 20);
-            this.FormatTextBox.TabIndex = 24;
+            this.CategoryCombo.FormattingEnabled = true;
+            this.CategoryCombo.Location = new System.Drawing.Point(92, 68);
+            this.CategoryCombo.Name = "CategoryCombo";
+            this.CategoryCombo.Size = new System.Drawing.Size(216, 21);
+            this.CategoryCombo.TabIndex = 25;
+            // 
+            // AlbumCombo
+            // 
+            this.AlbumCombo.FormattingEnabled = true;
+            this.AlbumCombo.Location = new System.Drawing.Point(92, 45);
+            this.AlbumCombo.Name = "AlbumCombo";
+            this.AlbumCombo.Size = new System.Drawing.Size(216, 21);
+            this.AlbumCombo.TabIndex = 24;
             // 
             // TagTextBox
             // 
@@ -90,22 +93,6 @@
             this.TagTextBox.Size = new System.Drawing.Size(216, 20);
             this.TagTextBox.TabIndex = 23;
             // 
-            // CategoryTextBox
-            // 
-            this.CategoryTextBox.Location = new System.Drawing.Point(92, 68);
-            this.CategoryTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.CategoryTextBox.Name = "CategoryTextBox";
-            this.CategoryTextBox.Size = new System.Drawing.Size(216, 20);
-            this.CategoryTextBox.TabIndex = 22;
-            // 
-            // AlbumTextBox
-            // 
-            this.AlbumTextBox.Location = new System.Drawing.Point(92, 46);
-            this.AlbumTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.AlbumTextBox.Name = "AlbumTextBox";
-            this.AlbumTextBox.Size = new System.Drawing.Size(216, 20);
-            this.AlbumTextBox.TabIndex = 21;
-            // 
             // NameTextBox
             // 
             this.NameTextBox.Location = new System.Drawing.Point(92, 23);
@@ -113,16 +100,6 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(216, 20);
             this.NameTextBox.TabIndex = 20;
-            // 
-            // FormatLabel
-            // 
-            this.FormatLabel.AutoSize = true;
-            this.FormatLabel.Location = new System.Drawing.Point(45, 117);
-            this.FormatLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.FormatLabel.Name = "FormatLabel";
-            this.FormatLabel.Size = new System.Drawing.Size(42, 13);
-            this.FormatLabel.TabIndex = 19;
-            this.FormatLabel.Text = "Format:";
             // 
             // TagLabel
             // 
@@ -173,13 +150,13 @@
             this.SearchBtn.TabIndex = 14;
             this.SearchBtn.Text = "Szukaj";
             this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // SearchResultGroup
             // 
             this.SearchResultGroup.Controls.Add(this.PhotoList);
             this.SearchResultGroup.Controls.Add(this.SelectedPhotoLabel);
             this.SearchResultGroup.Controls.Add(this.PhotoPreview);
-            this.SearchResultGroup.Controls.Add(this.ManagePhotoBtn);
             this.SearchResultGroup.Controls.Add(this.ShowPhotoBtn);
             this.SearchResultGroup.Location = new System.Drawing.Point(328, 11);
             this.SearchResultGroup.Margin = new System.Windows.Forms.Padding(2);
@@ -198,6 +175,7 @@
             this.PhotoList.Size = new System.Drawing.Size(293, 232);
             this.PhotoList.TabIndex = 30;
             this.PhotoList.UseCompatibleStateImageBehavior = false;
+            this.PhotoList.SelectedIndexChanged += new System.EventHandler(this.PhotoList_SelectedIndexChanged);
             // 
             // SelectedPhotoLabel
             // 
@@ -217,25 +195,16 @@
             this.PhotoPreview.TabIndex = 17;
             this.PhotoPreview.TabStop = false;
             // 
-            // ManagePhotoBtn
-            // 
-            this.ManagePhotoBtn.Location = new System.Drawing.Point(259, 255);
-            this.ManagePhotoBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.ManagePhotoBtn.Name = "ManagePhotoBtn";
-            this.ManagePhotoBtn.Size = new System.Drawing.Size(237, 36);
-            this.ManagePhotoBtn.TabIndex = 15;
-            this.ManagePhotoBtn.Text = "Zarządzaj zdjęciem";
-            this.ManagePhotoBtn.UseVisualStyleBackColor = true;
-            // 
             // ShowPhotoBtn
             // 
-            this.ShowPhotoBtn.Location = new System.Drawing.Point(4, 255);
+            this.ShowPhotoBtn.Location = new System.Drawing.Point(17, 255);
             this.ShowPhotoBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ShowPhotoBtn.Name = "ShowPhotoBtn";
-            this.ShowPhotoBtn.Size = new System.Drawing.Size(238, 36);
+            this.ShowPhotoBtn.Size = new System.Drawing.Size(293, 36);
             this.ShowPhotoBtn.TabIndex = 14;
             this.ShowPhotoBtn.Text = "Wyświetl zdjęcie";
             this.ShowPhotoBtn.UseVisualStyleBackColor = true;
+            this.ShowPhotoBtn.Click += new System.EventHandler(this.ShowPhotoBtn_Click);
             // 
             // ReturnBtn
             // 
@@ -270,12 +239,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox SearchConditionGroup;
-        private System.Windows.Forms.TextBox FormatTextBox;
         private System.Windows.Forms.TextBox TagTextBox;
-        private System.Windows.Forms.TextBox CategoryTextBox;
-        private System.Windows.Forms.TextBox AlbumTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.Label FormatLabel;
         private System.Windows.Forms.Label TagLabel;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.Label AlbumLabel;
@@ -285,8 +250,9 @@
         private System.Windows.Forms.ListView PhotoList;
         private System.Windows.Forms.Label SelectedPhotoLabel;
         private System.Windows.Forms.PictureBox PhotoPreview;
-        private System.Windows.Forms.Button ManagePhotoBtn;
         private System.Windows.Forms.Button ShowPhotoBtn;
         private System.Windows.Forms.Button ReturnBtn;
+        private System.Windows.Forms.ComboBox CategoryCombo;
+        private System.Windows.Forms.ComboBox AlbumCombo;
     }
 }

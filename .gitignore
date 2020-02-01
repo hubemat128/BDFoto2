@@ -1,5 +1,4 @@
-﻿################################################################################
-# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
-################################################################################
-
-/Foto2/.vs/PhotoAlbum/v16/Server/sqlite3/db.lock
+Foto2/bin/
+Foto2/obj/
+Foto2/.vs/PhotoAlbum/v16/
+Foto2/App.config

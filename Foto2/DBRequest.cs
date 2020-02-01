@@ -82,6 +82,16 @@
             return sb.ToString();
         }
 
+        public static string GetCategoryName(int index)
+        {
+            var sb = new StringBuilder();
+            sb.Append("SELECT  [Name] ");
+            sb.Append("FROM [dbo].[Categories]");
+            sb.Append($"WHERE ID = '{index}';");
+
+
+            return sb.ToString();
+        }
         #endregion
 
         #region Albums
@@ -125,6 +135,17 @@
             return sb.ToString();
         }
 
+        public static string GetAlbumName(int index)
+        {
+            var sb = new StringBuilder();
+            sb.Append("SELECT  [Name] ");
+            sb.Append("FROM [dbo].[Albums]");
+            sb.Append($"WHERE ID = '{index}';");
+
+
+            return sb.ToString();
+        }
+
         public static string GetAlbumIndex(string name)
         {
             var sb = new StringBuilder();
@@ -151,6 +172,47 @@
 
         #region Photos
 
+        public static string DeletePhoto(int id)
+        {
+            var sb = new StringBuilder();
+            sb.Append("DELETE FROM [dbo].[Photos]");
+            sb.Append("WHERE [ID] ='" + id+ "';");
+
+            return sb.ToString();
+        }
+
+        public static StringBuilder FindPhoto()
+        {
+            var sb = new StringBuilder();
+            sb.Append("SELECT ALL * ");
+            sb.Append("FROM [dbo].[Photos]");
+            return sb;
+        }
+
+        public static StringBuilder WithName(this  StringBuilder sb, string name)
+        {
+            sb.Append($" WHERE [Name] LIKE '{name}'");
+            return sb;
+        }
+
+        public static StringBuilder WithCategory(this StringBuilder sb, int id)
+        {
+            sb.Append($" WHERE [Category] = '{id}'");
+            return sb;
+        }
+
+        public static StringBuilder WithAlbum(this StringBuilder sb, int id)
+        {
+            sb.Append($" WHERE [Album] = '{id}'");
+            return sb;
+        }
+
+        public static StringBuilder WithTag(this StringBuilder sb, string name)
+        {
+            sb.Append($" WHERE [Tags] LIKE '{name}'");
+            return sb;
+        }
+
         public static string AddPhoto(string name, byte[] image, int albumID, int categoryID, int ownerID, string description, string[] tags, string format, Size resolution, int size)
         {
             var sb = new StringBuilder();
@@ -158,6 +220,34 @@
 
             sb.Append("INSERT INTO [dbo].[Photos] ([Name],[Owner],[Description],[Tags],[Category],[Album],[Format],[Resolution],[Size],[PhotoData]) ");
             sb.Append($"VALUES ('{name}','{ownerID}','{description}','{string.Join(",",tags)}','{categoryID}','{albumID}','{format}','{resolution.Width}x{resolution.Height}','{size}',@image);");
+
+            return sb.ToString();
+        }
+
+        public static string RenamePhoto(int id, string newName)
+        {
+            var sb = new StringBuilder();
+            sb.Append("UPDATE [dbo].[Photos]");
+            sb.Append("SET [Name] = '" + newName + "'");
+            sb.Append("WHERE [ID] = '" + id+ "'");
+
+            return sb.ToString();
+        }
+
+        public static string ChangePhotoCategory(int id, int newCategoryID)
+        {
+            var sb = new StringBuilder();
+            sb.Append("UPDATE [dbo].[Photos]");
+            sb.Append("SET [Category] = '" + newCategoryID + "'");
+            sb.Append("WHERE [ID] = '" + id + "'");
+
+            return sb.ToString();
+        }
+        public static string ChangePhotoDescription(int id, string newDesc){
+            var sb = new StringBuilder();
+            sb.Append("UPDATE [dbo].[Photos]");
+            sb.Append("SET [Description] = '" + newDesc + "'");
+            sb.Append("WHERE [ID] = '" + id + "'");
 
             return sb.ToString();
         }

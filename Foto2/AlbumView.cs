@@ -108,7 +108,6 @@
                 {new ColumnHeader()});
         }
 
-
         public Image ImageFromByteArray(byte[] byteIn)
         {
             using (var ms = new MemoryStream())
@@ -119,11 +118,15 @@
             }
         }
 
+
         private void PhotoList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(PhotoList.SelectedItems.Count != 1)return;
+            
             var photo = _photos[PhotoList.SelectedIndices[0]];
-            var photoManager = new PhotoManager(ImageFromByteArray(photo.PhotoData));
+            var photoManager = new PhotoManager(photo);
             photoManager.Show();
+            Hide();
         }
     }
 }

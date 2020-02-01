@@ -35,8 +35,7 @@ namespace HMatuszewski.PhotoAlbum
 
         private void LoadPreImportedPhotos()
         {
-            _albums.Add(new TextInstance(){Name = "PreImportedPhotos"});
-            _albums.Add(new TextInstance(){Name = "Empty Head"});
+
             AlbumList.Refresh();
         }
 
@@ -46,6 +45,7 @@ namespace HMatuszewski.PhotoAlbum
         {
             var albumView =  new AlbumView(AlbumList.SelectedItem.ToString());
             albumView.Show();
+            Hide();
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)

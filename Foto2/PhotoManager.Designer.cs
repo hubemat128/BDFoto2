@@ -40,6 +40,7 @@
             this.AlbumLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.TagsGroup = new System.Windows.Forms.GroupBox();
+            this.TagsLabel = new System.Windows.Forms.Label();
             this.ManageGroup = new System.Windows.Forms.GroupBox();
             this.ChangeDescGroup = new System.Windows.Forms.GroupBox();
             this.PhotoDescTextBox = new System.Windows.Forms.RichTextBox();
@@ -48,14 +49,15 @@
             this.PhotoNameTextBox = new System.Windows.Forms.TextBox();
             this.ChangePhotoName = new System.Windows.Forms.Button();
             this.ChangeCategoryGroup = new System.Windows.Forms.GroupBox();
+            this.CategoryList = new System.Windows.Forms.ListView();
             this.SelectCategoryBtn = new System.Windows.Forms.Button();
-            this.CategoryList = new System.Windows.Forms.ListBox();
             this.RemovePhotoBtn = new System.Windows.Forms.Button();
             this.PreviewLabel = new System.Windows.Forms.Label();
             this.ReturnBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PhotoPreview)).BeginInit();
             this.DescriptionGroup.SuspendLayout();
             this.PhotoDataGroup.SuspendLayout();
+            this.TagsGroup.SuspendLayout();
             this.ManageGroup.SuspendLayout();
             this.ChangeDescGroup.SuspendLayout();
             this.ChangeNameGroup.SuspendLayout();
@@ -79,16 +81,15 @@
             this.DescriptionGroup.TabIndex = 1;
             this.DescriptionGroup.TabStop = false;
             this.DescriptionGroup.Text = "Opis zdjęcia";
-            this.DescriptionGroup.Enter += new System.EventHandler(this.DescriptionGroupEnter);
             // 
             // PhotoDescriptionLabel
             // 
             this.PhotoDescriptionLabel.AutoSize = true;
-            this.PhotoDescriptionLabel.Location = new System.Drawing.Point(6, 27);
+            this.PhotoDescriptionLabel.Location = new System.Drawing.Point(6, 16);
             this.PhotoDescriptionLabel.Name = "PhotoDescriptionLabel";
-            this.PhotoDescriptionLabel.Size = new System.Drawing.Size(58, 13);
+            this.PhotoDescriptionLabel.Size = new System.Drawing.Size(28, 13);
             this.PhotoDescriptionLabel.TabIndex = 0;
-            this.PhotoDescriptionLabel.Text = "super opis ";
+            this.PhotoDescriptionLabel.Text = "Opis";
             // 
             // PhotoDataGroup
             // 
@@ -109,7 +110,7 @@
             // ResolutionLabel
             // 
             this.ResolutionLabel.AutoSize = true;
-            this.ResolutionLabel.Location = new System.Drawing.Point(10, 102);
+            this.ResolutionLabel.Location = new System.Drawing.Point(6, 100);
             this.ResolutionLabel.Name = "ResolutionLabel";
             this.ResolutionLabel.Size = new System.Drawing.Size(78, 13);
             this.ResolutionLabel.TabIndex = 6;
@@ -141,7 +142,6 @@
             this.CreationDateLabel.Size = new System.Drawing.Size(87, 13);
             this.CreationDateLabel.TabIndex = 3;
             this.CreationDateLabel.Text = "Data wykonania:";
-            this.CreationDateLabel.Click += new System.EventHandler(this.CreationDateClicked);
             // 
             // CategoryLabel
             // 
@@ -160,7 +160,6 @@
             this.AlbumLabel.Size = new System.Drawing.Size(39, 13);
             this.AlbumLabel.TabIndex = 1;
             this.AlbumLabel.Text = "Album:";
-            this.AlbumLabel.Click += new System.EventHandler(this.AlbumLabelClicked);
             // 
             // NameLabel
             // 
@@ -173,12 +172,22 @@
             // 
             // TagsGroup
             // 
+            this.TagsGroup.Controls.Add(this.TagsLabel);
             this.TagsGroup.Location = new System.Drawing.Point(417, 170);
             this.TagsGroup.Name = "TagsGroup";
             this.TagsGroup.Size = new System.Drawing.Size(222, 100);
             this.TagsGroup.TabIndex = 3;
             this.TagsGroup.TabStop = false;
             this.TagsGroup.Text = "Tagi";
+            // 
+            // TagsLabel
+            // 
+            this.TagsLabel.AutoSize = true;
+            this.TagsLabel.Location = new System.Drawing.Point(7, 16);
+            this.TagsLabel.Name = "TagsLabel";
+            this.TagsLabel.Size = new System.Drawing.Size(36, 13);
+            this.TagsLabel.TabIndex = 1;
+            this.TagsLabel.Text = "TAGS";
             // 
             // ManageGroup
             // 
@@ -224,6 +233,7 @@
             this.ChangePhotoDesc.TabIndex = 19;
             this.ChangePhotoDesc.Text = "Zastosuj";
             this.ChangePhotoDesc.UseVisualStyleBackColor = true;
+            this.ChangePhotoDesc.Click += new System.EventHandler(this.ChangePhotoDesc_Click);
             // 
             // ChangeNameGroup
             // 
@@ -256,6 +266,7 @@
             this.ChangePhotoName.TabIndex = 17;
             this.ChangePhotoName.Text = "Zastosuj";
             this.ChangePhotoName.UseVisualStyleBackColor = true;
+            this.ChangePhotoName.Click += new System.EventHandler(this.ChangePhotoName_Click);
             // 
             // ChangeCategoryGroup
             // 
@@ -270,26 +281,26 @@
             this.ChangeCategoryGroup.TabStop = false;
             this.ChangeCategoryGroup.Text = "Zmiana kategorii";
             // 
+            // CategoryList
+            // 
+            this.CategoryList.HideSelection = false;
+            this.CategoryList.Location = new System.Drawing.Point(5, 15);
+            this.CategoryList.Name = "CategoryList";
+            this.CategoryList.Size = new System.Drawing.Size(137, 53);
+            this.CategoryList.TabIndex = 18;
+            this.CategoryList.UseCompatibleStateImageBehavior = false;
+            this.CategoryList.View = System.Windows.Forms.View.List;
+            // 
             // SelectCategoryBtn
             // 
-            this.SelectCategoryBtn.Location = new System.Drawing.Point(8, 66);
+            this.SelectCategoryBtn.Location = new System.Drawing.Point(4, 73);
             this.SelectCategoryBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SelectCategoryBtn.Name = "SelectCategoryBtn";
-            this.SelectCategoryBtn.Size = new System.Drawing.Size(130, 21);
+            this.SelectCategoryBtn.Size = new System.Drawing.Size(139, 21);
             this.SelectCategoryBtn.TabIndex = 17;
             this.SelectCategoryBtn.Text = "Wybierz";
             this.SelectCategoryBtn.UseVisualStyleBackColor = true;
-            // 
-            // CategoryList
-            // 
-            this.CategoryList.FormattingEnabled = true;
-            this.CategoryList.Items.AddRange(new object[] {
-            "Lista wszystkich kategorii..."});
-            this.CategoryList.Location = new System.Drawing.Point(7, 18);
-            this.CategoryList.Margin = new System.Windows.Forms.Padding(2);
-            this.CategoryList.Name = "CategoryList";
-            this.CategoryList.Size = new System.Drawing.Size(131, 43);
-            this.CategoryList.TabIndex = 0;
+            this.SelectCategoryBtn.Click += new System.EventHandler(this.SelectCategoryBtn_Click);
             // 
             // RemovePhotoBtn
             // 
@@ -300,6 +311,7 @@
             this.RemovePhotoBtn.TabIndex = 5;
             this.RemovePhotoBtn.Text = "Usuń zdjęcie";
             this.RemovePhotoBtn.UseVisualStyleBackColor = true;
+            this.RemovePhotoBtn.Click += new System.EventHandler(this.RemovePhotoBtn_Click);
             // 
             // PreviewLabel
             // 
@@ -340,6 +352,8 @@
             this.DescriptionGroup.PerformLayout();
             this.PhotoDataGroup.ResumeLayout(false);
             this.PhotoDataGroup.PerformLayout();
+            this.TagsGroup.ResumeLayout(false);
+            this.TagsGroup.PerformLayout();
             this.ManageGroup.ResumeLayout(false);
             this.ChangeDescGroup.ResumeLayout(false);
             this.ChangeNameGroup.ResumeLayout(false);
@@ -374,8 +388,9 @@
         private System.Windows.Forms.Button ChangePhotoName;
         private System.Windows.Forms.GroupBox ChangeCategoryGroup;
         private System.Windows.Forms.Button SelectCategoryBtn;
-        private System.Windows.Forms.ListBox CategoryList;
         private System.Windows.Forms.Button RemovePhotoBtn;
         private System.Windows.Forms.Button ReturnBtn;
+        private System.Windows.Forms.Label TagsLabel;
+        private System.Windows.Forms.ListView CategoryList;
     }
 }
