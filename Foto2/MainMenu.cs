@@ -10,13 +10,17 @@ using System.Windows.Forms;
 
 namespace HMatuszewski.PhotoAlbum
 {
+    
     public partial class MainMenu : Form
     {
+       
         public MainMenu()
         {
             InitializeComponent();
 
             CategoryBtn.Enabled = LoginPage.IsAdmin;
+            this.helpProvider2.SetShowHelp(this.CategoryBtn, true);
+            this.helpProvider2.SetHelpString(this.CategoryBtn, "szef c#");
         }
 
         private void AddClicked(object sender, EventArgs e)
@@ -46,5 +50,8 @@ namespace HMatuszewski.PhotoAlbum
             view.Show();
             Hide();
         }
+        
+      
     }
+    
 }

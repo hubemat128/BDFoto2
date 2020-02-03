@@ -32,6 +32,7 @@
             this.CategoryBtn = new System.Windows.Forms.Button();
             this.FindBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
+            this.helpProvider2 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // AlbumBtn
@@ -60,7 +61,7 @@
             this.FindBtn.Name = "FindBtn";
             this.FindBtn.Size = new System.Drawing.Size(181, 41);
             this.FindBtn.TabIndex = 2;
-            this.FindBtn.Text = "Wyszkuja Zdjęcie";
+            this.FindBtn.Text = "Wyszukaj Zdjęcie";
             this.FindBtn.UseVisualStyleBackColor = true;
             this.FindBtn.Click += new System.EventHandler(this.FindBtn_Click);
             // 
@@ -83,7 +84,11 @@
             this.Controls.Add(this.FindBtn);
             this.Controls.Add(this.AlbumBtn);
             this.Controls.Add(this.CategoryBtn);
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainMenu";
+            this.helpProvider2.SetShowHelp(this, true);
             this.Text = "HMatuszewski - PhotoAlbum";
             this.ResumeLayout(false);
 
@@ -95,5 +100,7 @@
         private System.Windows.Forms.Button CategoryBtn;
         private System.Windows.Forms.Button FindBtn;
         private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.HelpProvider helpProvider2;
     }
+    
 }
