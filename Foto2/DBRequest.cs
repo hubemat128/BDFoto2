@@ -99,9 +99,9 @@
         public static string CreateAlbum(string name)
         {
             var sb = new StringBuilder();
-            sb.Append("INSERT INTO [dbo].[Albums] ([Name]) ");
-            sb.Append("VALUES ('" + name + "');");
-
+            sb.Append("INSERT INTO [dbo].[Albums] ([Name], [Owner]) ");
+            sb.Append("VALUES ('" + name + "', '"+ LoginPage.LoggedUser +"');");
+            
             return sb.ToString();
         }
 
@@ -129,6 +129,7 @@
             var sb = new StringBuilder();
             sb.Append("SELECT ALL [Name],[ID] ");
             sb.Append("FROM [dbo].[Albums]");
+            sb.Append($"WHERE Owner = '{LoginPage.LoggedUser}'");
             sb.Append("ORDER BY [ID] ASC;");
 
 
@@ -140,7 +141,7 @@
             var sb = new StringBuilder();
             sb.Append("SELECT  [Name] ");
             sb.Append("FROM [dbo].[Albums]");
-            sb.Append($"WHERE ID = '{index}';");
+            sb.Append($"WHERE ID = '{index}'AND Owner = '{LoginPage.LoggedUser}';");
 
 
             return sb.ToString();
@@ -151,7 +152,7 @@
             var sb = new StringBuilder();
             sb.Append("SELECT  [ID] ");
             sb.Append("FROM [dbo].[Albums]");
-            sb.Append($"WHERE Name = '{name}';");
+            sb.Append($"WHERE Name = '{name}' AND Owner = '{LoginPage.LoggedUser}';");
 
 
             return sb.ToString();

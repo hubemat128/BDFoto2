@@ -20,7 +20,7 @@ namespace HMatuszewski.PhotoAlbum
 
             CategoryBtn.Enabled = LoginPage.IsAdmin;
             this.helpProvider2.SetShowHelp(this.CategoryBtn, true);
-            this.helpProvider2.SetHelpString(this.CategoryBtn, "szef c#");
+            this.helpProvider2.SetHelpString(this.CategoryBtn, "testowy helper");
         }
 
         private void AddClicked(object sender, EventArgs e)
